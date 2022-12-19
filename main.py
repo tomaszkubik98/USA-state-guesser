@@ -1,19 +1,20 @@
 import turtle
 import pandas
 
+# Set up screen params
 screen = turtle.Screen()
 screen.title("USA States Game")
-map_image = "blank_states_img.gif"
+map_image = "static/blank_states_img.gif"
 screen.addshape(map_image)
 turtle.shape(map_image)
 
-
-
-data = pandas.read_csv("50_states.csv")
+# Read game data
+data = pandas.read_csv("data/50_states.csv")
 states_list = data.state.to_list()
 
 guessed_states = 0
 
+# Run the game
 game_on = True
 while game_on:
     answer = screen.textinput(f"Guessed states {guessed_states}/50", "Type missing state:").title()
